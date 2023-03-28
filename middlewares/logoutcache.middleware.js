@@ -1,7 +1,9 @@
 const { createClient } = require("redis");
+require('dotenv').config();
+
 
 const client = createClient({
-    url: 'redis://default:NQYgbkzzivUO4yxTjFd5SXTiiwZIxWLi@redis-19812.c264.ap-south-1-1.ec2.cloud.redislabs.com:19812'
+    url: process.env.redisURL
 });
 
 client.on('error', err => console.log('Redis Client Error', err));
